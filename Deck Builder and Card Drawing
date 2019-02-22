@@ -1,0 +1,20 @@
+from random import randint
+#Deck Builder starts here. I claim this code as my own. Use as you wish, but give credit. Do I just slap a copyright here and call it good? If so, Copyright 2019
+numList = ['Ace', '2','3', '4', '5', '6', '7', '8', '9','10', 'Jack', 'Queen', 'King']
+suitList = ['Spades', 'Clubs', 'Hearts', 'Diamonds']
+deck = []
+for s in range (len(suitList)):
+  for n in range(len(numList)):
+    deck.append(numList[n] + " of " + suitList[s])
+#End Deck Builder
+
+#Card Drawing
+draw = 5
+hand = []
+deck1 = deck
+for x in range(draw):
+  delvar = randint(1, len(deck1)-1)
+  hand.insert(0, deck1[delvar])
+  del deck1[delvar]
+print "Your hand:"
+print hand
