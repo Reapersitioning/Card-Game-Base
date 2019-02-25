@@ -1,0 +1,58 @@
+from random import randint
+#Deck Builder starts here. I claim this code as my own. Use as you wish, but give credit. Do I just slap a copyright here and call it good? If so, Copyright Nt45Dev - 2019
+numList = ['Ace', '2','3', '4', '5', '6', '7', '8', '9','10', 'Jack', 'Queen', 'King']
+suitList = ['Spades', 'Clubs', 'Hearts', 'Diamonds']
+deck = []
+for s in range (len(suitList)):
+  for n in range(len(numList)):
+    deck.append(numList[n] + " of " + suitList[s])
+#End Deck Builder
+
+#Card Drawing
+#draw must be greater than or equal to zero and less than or equal to 52 (numerical signs don't work, sorry)
+draw = 5
+hand = []
+dealerHand=[]
+deck1 = []
+for s in range (len(suitList)):
+  for n in range(len(numList)):
+    deck1.append(numList[n] + " of " + suitList[s])
+
+#For your hand    
+for x in range(draw):
+  delvar = randint(1, len(deck1)-1)
+  hand.insert(0, deck1[delvar])
+  del deck1[delvar]
+  
+#Dealer's hand
+for x in range(draw):
+  delvar = randint(1, len(deck1)-1)
+  dealerHand.insert(0, deck1[delvar])
+  del deck1[delvar]
+print "Your hand:"
+print hand
+print 
+print "Dealer's hand:"
+print dealerHand
+
+#Raw Card Value (Index of deck) Must be between 0 and 51, including 0 and 51. 0 is Ace of Spades, 51 is King of Diamonds
+rawVal=0
+print
+print"Raw value:"
+print deck[rawVal]
+
+#Random Card from Suit
+print
+print "Random Card from each Suit:"
+#Spades
+fromSpades=(randint(0,12)%13)
+print deck[fromSpades]
+#Clubs
+fromClubs=(randint(0,12)%13)+13
+print deck[fromClubs]
+#Hearts
+fromHearts=(randint(0,12)%13)+26
+print deck[fromHearts]
+#Diamonds
+fromDiamonds=(randint(0,12)%13)+39
+print deck[fromDiamonds]
